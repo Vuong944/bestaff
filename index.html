@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!countdown) return;
 
   const endTime = parseInt(countdown.getAttribute("data-date-end"), 10);
+  let timer; // 👈 Sửa ở đây: khai báo biến timer trước
 
   function updateCountdown() {
     const now = Date.now();
@@ -64,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (remaining <= 0) {
       remaining = 0;
-      clearInterval(timer);
+      clearInterval(timer); // bây giờ không còn lỗi nữa
     }
 
     const days = String(Math.floor(remaining / 86400)).padStart(2, '0');
@@ -79,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   updateCountdown(); // Gọi lần đầu
-  const timer = setInterval(updateCountdown, 1000);
+  timer = setInterval(updateCountdown, 1000); // Gán biến sau
 });
 </script>
 </body></html>
