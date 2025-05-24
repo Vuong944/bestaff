@@ -60,10 +60,12 @@
     const endTime = Number(countdown.getAttribute("data-date-end"));
     if (!endTime || isNaN(endTime)) return;
 
+    let timer; // Khai báo timer ở đây để có thể clearInterval bên trong hàm
+
     // Hàm cập nhật đếm ngược
     function updateCountdown() {
       const now = Date.now();
-      let remaining = Math.floor((endTime - now) / 1000); // Tính theo giây
+      let remaining = Math.floor((endTime - now) / 1000); // giây
 
       if (remaining <= 0) {
         remaining = 0;
@@ -75,7 +77,6 @@
       const minutes = String(Math.floor((remaining % 3600) / 60)).padStart(2, '0');
       const seconds = String(remaining % 60).padStart(2, '0');
 
-      // Truy xuất đúng thứ tự các span
       const items = countdown.querySelectorAll(".ladi-countdown-text > span");
       if (items.length >= 4) {
         items[0].textContent = days;
@@ -85,8 +86,8 @@
       }
     }
 
-    updateCountdown(); // Cập nhật lần đầu
-    const timer = setInterval(updateCountdown, 1000); // Cập nhật mỗi giây
+    updateCountdown(); // Gọi lần đầu
+    timer = setInterval(updateCountdown, 1000); // Gán vào biến đã khai báo
   });
 </script>
 </body></html>
