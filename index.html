@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
     right: 0 !important;
     bottom: 0 !important;
     top: unset !important;
-    width: 100vw !important;
+    width: 100% !important; /* CHỈ DÙNG 100%, KHÔNG DÙNG 100vw */
     max-width: 100vw !important;
     z-index: 99999 !important;
     margin: 0 !important;
@@ -201,10 +201,19 @@ document.addEventListener("DOMContentLoaded", function () {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    overflow: hidden !important; /* Ngăn tràn ngang */
+  }
+  #SECTION8 > * {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
   }
   #SECTION8 * {
     box-sizing: border-box !important;
-    max-width: 100vw !important;
+    max-width: 100% !important;
   }
 }
 </style>
