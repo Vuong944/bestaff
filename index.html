@@ -190,6 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
     top: unset !important;
     width: 100vw !important;
     max-width: 100vw !important;
+    min-height: 54px !important;
     z-index: 99999 !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -197,14 +198,35 @@ document.addEventListener("DOMContentLoaded", function () {
     box-shadow: 0 -2px 16px rgba(0,0,0,0.09) !important;
     background: linear-gradient(90deg, #ff512f, #ffb347) !important;
     box-sizing: border-box !important;
-    min-height: 54px !important;
+    /* NEW: Fix overflow for children */
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    text-align: center !important;
+  }
+  #SECTION8 .ladi-container,
+  #SECTION8 .ladi-element {
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
   }
   #SECTION8 * {
+    text-align: center !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     box-sizing: border-box !important;
     max-width: 100vw !important;
+    /* NEW: force font not to overflow */
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
   }
 }
 </style>
